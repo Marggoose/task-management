@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление Задачами</title>
+    <link rel="stylesheet" href="tasks.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="app-title">Система Управления Задачами</h1>
+            <nav>
+                <button id="logoutButton" class="button">Выйти</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Создание новой задачи</h2>
+            <form id="taskForm">
+                <input type="text" id="taskTitle" placeholder="Название задачи" required>
+                <textarea id="taskDescription" placeholder="Описание задачи" required></textarea>
+                <input type="date" id="taskDeadline" required>
+                <select id="taskAssignee">
+                    <option value="">Назначить ответственное лицо</option>
+                    <option value="user1">Пользователь 1</option>
+                    <option value="user2">Пользователь 2</option>
+                </select>
+                <button type="submit" class="button">Добавить задачу</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Список задач</h2>
+            <ul id="taskList"></ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Система Управления Задачами. Все права защищены.</p>
+    </footer>
+
+    <script src="tasks.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+/* main.css */
+
+/* Общие стили для главной страницы */
+body {
+    font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Цвет фона страницы */
+}
+
+/* Заголовок */
+header {
+    background: #2c3e50; /* Цвет фона шапки */
+    color: white; /* Цвет текста в шапке */
+    padding: 20px; /* Отступы внутри шапки */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень для шапки */
+}
+
+.header-container {
+    display: flex; /* Используем flexbox для расположения элементов */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center; /* Выравнивание по центру по вертикали */
+}
+
+nav a {
+    margin-left: 15px; /* Отступ между кнопками */
+}
+
+/* Кнопки в навигации */
+.button {
+    background-color: #ff6f61; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    padding: 10px 15px; /* Отступы внутри кнопки */
+    border: none; /* Без границы */
+    border-radius: 4px; /* Закругленные углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход цвета кнопки и трансформации */
+}
+
+.button:hover {
+    background-color: #e55a50; /* Цвет кнопки при наведении */
+    transform: translateY(-2px); /* Подъем кнопки при наведении */
+}
+
+/* Приветствие */
+.welcome-message {
+    text-align: center; /* Выравнивание текста по центру */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    opacity: 0; /* Начальное состояние для анимации */
+    transform: translateY(-20px); /* Начальная позиция для анимации */
+    animation: fadeInUp 1s forwards; /* Анимация */
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Конечное состояние */
+        transform: translateY(0); /* Конечная позиция */
+    }
+}
+
+/* Преимущества, функции и призыв к действию */
+.advantages, .features, .call-to-action {
+    background: white; /* Цвет фона для секций */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 20px; /* Отступы внутри секции */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    margin: 20px 0; /* Отступы между секциями */
+    opacity: 0; /* Начальное состояние для анимации */
+    transform: translateY(-20px); /* Начальная позиция для анимации */
+    animation: fadeInUp 1s forwards; /* Анимация */
+}
+
+/* Задержка анимации для секций */
+.advantages {
+    animation-delay: 0.5s; /* Задержка для секции преимуществ */
+}
+
+.features {
+    animation-delay: 1s; /* Задержка для секции функций */
+}
+
+.call-to-action {
+    animation-delay: 1.5s; /* Задержка для секции призыва к действию */
+}
+
+h2 {
+    margin-top: 0; /* Убираем верхний отступ у заголовка */
+    color: #2c3e50; /* Цвет заголовков */
+}
+
+/* Стили для карточек */
+.card-container {
+    display: flex; /* Используем flexbox для карточек */
+    flex-wrap: wrap; /* Позволяем карточкам переноситься */
+    justify-content: space-between; /* Распределяем карточки по ширине */
+}
+
+.card {
+    background: #ffffff; /* Цвет фона карточки */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 15px; /* Отступы внутри карточки */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Легкая тень для карточки */
+    flex: 1 1 calc(22% - 20px); /* Гибкая ширина карточек с отступами */
+    margin: 10px; /* Отступы между карточками */
+    transition: transform 0.3s; /* Плавный переход для трансформации */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Подъем карточки при наведении */
+}
+
+/* Стили для футера */
+footer {
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 20px; /* Отступы внутри футера */
+    background: #2c3e50; /* Цвет фона футера */
+    color: white; /* Цвет текста футера */
+    position: relative; /* Позиционирование футера */
+    bottom: 0; /* Привязываем футер к низу */
+    width: 100%; /* Ширина футера на всю страницу */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Тень для футера */
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 calc(46% - 20px); /* Ширина карточек для мобильных устройств */
+    }
+
+    nav a {
+        margin-left: 10px; /* Уменьшаем отступы в навигации для мобильных */
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        flex: 1 1 100%; /* Полная ширина карточек для маленьких экранов */
+    }
+
+    .header-container {
+        flex-direction: column; /* Вертикальное расположение элементов в шапке */
+        align-items: flex-start; /* Выравнивание элементов по левому краю */
+    }
+
+    nav a {
+        margin-left: 0; /* Убираем отступы для мобильных */
+        margin-top: 10px; /* Добавляем отступ сверху между кнопками */
+    }
+}

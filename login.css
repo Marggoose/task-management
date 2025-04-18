@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
+    background-color: #f4f4f4; /* Цвет фона страницы */
+    color: #333; /* Цвет текста */
+}
+
+/* Заголовок */
+.header-container {
+    background-color: #2c3e50; /* Цвет фона шапки */
+    color: white; /* Цвет текста в шапке */
+    padding: 20px; /* Отступы внутри шапки */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.app-title {
+    margin-bottom: 10px; /* Отступ снизу у заголовка */
+}
+
+nav {
+    margin-top: 10px; /* Отступ сверху у навигации */
+}
+
+nav .button {
+    background-color: #ff6f61; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Без границы */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    border-radius: 5px; /* Закругленные углы */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход */
+}
+
+nav .button:hover {
+    background-color: #e55a50; /* Цвет кнопки при наведении */
+    color: white; /* Цвет текста при наведении */
+}
+
+/* Основной контент */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px); /* Высота с учетом шапки и футера */
+}
+
+/* Формы регистрации и входа */
+.registration-form, .login-form {
+    background-color: white; /* Цвет фона формы */
+    padding: 30px; /* Отступы внутри формы */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    width: 300px; /* Ширина формы */
+}
+
+/* Заголовки форм */
+h2 {
+    margin-bottom: 20px; /* Отступ снизу у заголовка формы */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+/* Стили для форм */
+form {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов формы */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px; /* Отступы внутри полей ввода */
+    margin-bottom: 15px; /* Отступ снизу у полей ввода */
+    border: 1px solid #ccc; /* Цвет границы */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+}
+
+/* Кнопка отправки */
+button {
+    padding: 10px; /* Отступы внутри кнопки */
+    background-color: #ff6f61; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Без границы */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.3s; /* Плавный переход */
+}
+
+button:hover {
+    background-color: #e55a50; /* Цвет кнопки при наведении */
+}
+
+/* Стили для футера */
+footer {
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 20px; /* Отступы внутри футера */
+    background-color: #2c3e50; /* Цвет фона футера */
+    color: white; /* Цвет текста футера */
+    position: relative; /* Позиционирование футера */
+    bottom: 0; /* Привязываем футер к низу */
+    width: 100%; /* Ширина футера на всю страницу */
+}

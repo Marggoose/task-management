@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход | Система Управления Задачами</title>
+    <meta name="description" content="Войдите в свою учетную запись для доступа к системе управления задачами.">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="app-title">Вход</h1>
+            <nav>
+                <a href="register.html" class="button">Регистрация</a>
+                <a href="index.html" class="button">На главную</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-form">
+            <h2>Войдите в свою учетную запись</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <input type="text" id="username" placeholder="Имя пользователя" required aria-label="Имя пользователя">
+                <input type="password" id="password" placeholder="Пароль" required aria-label="Пароль">
+                <button type="submit" id="submitLogin">Войти</button>
+            </form>
+            <div id="error-message" style="color: red; display: none;"></div> <!-- Место для сообщения об ошибке -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Система Управления Задачами. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Получаем данные пользователя из localStorage
+            const userData = localStorage.getItem(username);
+
+            // Проверяем, существует ли пользователь и правильный ли пароль
+            if (userData) {
+                const { password: storedPassword } = JSON.parse(userData);
+                if (storedPassword === password) {
+                    alert('Вход выполнен успешно!'); // Здесь можно перенаправить пользователя
+                    window.location.href = 'tasks.html'; // Перенаправление на страницу добавления задач после входа
+                } else {
+                    showErrorMessage('Неверный пароль. Пожалуйста, попробуйте еще раз.');
+                }
+            } else {
+                showErrorMessage('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
+            }
+        }
+
+        function showErrorMessage(message) {
+            const errorMessageElement = document.getElementById('error-message');
+            errorMessageElement.textContent = message;
+            errorMessageElement.style.display = 'block'; // Показываем сообщение об ошибке
+        }
+    </script>
+</body>
+</html>
