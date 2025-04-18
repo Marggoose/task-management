@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.getElementById('taskList');
     const logoutButton = document.getElementById('logoutButton');
 
-    const currentUser  = localStorage.getItem('currentUser ');
+    const currentUser  = localStorage.getItem('currentUser '); // Убедитесь, что пробела нет
     if (!currentUser ) {
         alert('Пожалуйста, войдите в систему!');
-        window.location.href = 'index.html'; // Перенаправление на страницу входа
+        window.location.href = 'login.html'; // Перенаправление на страницу входа
     }
 
     const loadTasks = () => {
@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         taskForm.reset();
     });
 
+    let editIndex = null; // Переменная для хранения индекса редактируемой задачи
+
     window.editTask = (index) => {
         const tasks = JSON.parse(localStorage.getItem(currentUser  + '_tasks'));
         const task = tasks[index];
@@ -55,26 +57,47 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('taskDeadline').value = task.deadline;
         document.getElementById('taskAssignee').value = task.assignee;
 
-        tasks.splice(index, 1);
-        saveTasks(tasks);
+        editIndex = index; // Сохраняем индекс редактируемой задачи
     };
 
+    taskForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.getElementById('taskTitle').value;
+        const description = document.getElementById('taskDescription').value;
+        const deadline = document.getElementById('taskDeadline').value;
+        const assignee = document.getElementById('taskAssignee').value;
+
+        const tasks = JSON.parse(localStorage.getItem(currentUser  + '_tasks')) || [];
+
+        if (editIndex !== null) {
+            // Если редактируем задачу
+            tasks[editIndex] = { title, description, deadline, assignee, completed: tasks[editIndex].completed };
+            editIndex = null; // Сбрасываем индекс редактируемой задачи
+        } else {
+            // Если добавляем новую задачу
+            tasks.push({ title, description, deadline, assignee, completed: false });
+        }
+
+        saveTasks(tasks);
+        taskForm.reset(); // Сбрасываем форму после добавления или редактирования
+    });
+
     window.deleteTask = (index) => {
-        const tasks = JSON.parse(localStorage.getItem(currentUser  + '_tasks'));
+        const tasks = JSON.parse(localStorage.getItem(currentUser   + '_tasks'));
         tasks.splice(index, 1);
         saveTasks(tasks);
     };
 
     window.toggleComplete = (index) => {
-        const tasks = JSON.parse(localStorage.getItem(currentUser  + '_tasks'));
+        const tasks = JSON.parse(localStorage.getItem(currentUser   + '_tasks'));
         tasks[index].completed = !tasks[index].completed;
         saveTasks(tasks);
     };
 
     logoutButton.addEventListener('click', () => {
-        localStorage.removeItem('currentUser ');
-        window.location.href = 'index.html'; // Перенаправление на страницу входа
+        localStorage.removeItem('currentUser  '); // Удаляем информацию о текущем пользователе
+        window.location.href = 'login.html'; // Перенаправление на страницу входа
     });
 
-    loadTasks();
+    loadTasks(); // Загружаем задачи при загрузке страницы
 });

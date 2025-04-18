@@ -38,17 +38,18 @@
     <script>
         function handleLogin(event) {
             event.preventDefault(); // Предотвращаем стандартное поведение формы
-
+    
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-
+    
             // Получаем данные пользователя из localStorage
             const userData = localStorage.getItem(username);
-
+    
             // Проверяем, существует ли пользователь и правильный ли пароль
             if (userData) {
                 const { password: storedPassword } = JSON.parse(userData);
                 if (storedPassword === password) {
+                    localStorage.setItem('currentUser ', username); // Сохраняем текущего пользователя
                     alert('Вход выполнен успешно!'); // Здесь можно перенаправить пользователя
                     window.location.href = 'tasks.html'; // Перенаправление на страницу добавления задач после входа
                 } else {
@@ -58,7 +59,7 @@
                 showErrorMessage('Пользователь не найден. Пожалуйста, зарегистрируйтесь.');
             }
         }
-
+    
         function showErrorMessage(message) {
             const errorMessageElement = document.getElementById('error-message');
             errorMessageElement.textContent = message;
