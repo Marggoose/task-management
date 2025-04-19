@@ -18,24 +18,45 @@
     </header>
 
     <main>
-        <section>
+        <section class="section-centered">
             <h2>Создание новой задачи</h2>
             <form id="taskForm">
                 <input type="text" id="taskTitle" placeholder="Название задачи" required>
                 <textarea id="taskDescription" placeholder="Описание задачи" required></textarea>
                 <input type="date" id="taskDeadline" required>
+                
                 <select id="taskAssignee">
                     <option value="">Назначить ответственное лицо</option>
-                    <option value="user1">Пользователь 1</option>
-                    <option value="user2">Пользователь 2</option>
+                    <option value="Директор">Директор</option>
+                    <option value="Заведующий">Заведующий</option>
+                    <option value="Секретарь">Секретарь</option>
+                    <option value="Практикант">Практикант</option>
+                    <option value="Студент-практикант">Студент-практикант</option>
                 </select>
+            
+                <!-- Приоритет -->
+                <select id="taskPriority">
+                    <option value="">Установить приоритет</option>
+                    <option value="Высокий">Высокий</option>
+                    <option value="Средний">Средний</option>
+                    <option value="Низкий">Низкий</option>
+                </select>
+            
+                <!-- Статус -->
+                <select id="taskStatus">
+                    <option value="В процессе">В процессе</option>
+                    <option value="Завершено">Завершено</option>
+                    <option value="Отложено">Отложено</option>
+                </select>
+            
                 <button type="submit" class="button">Добавить задачу</button>
             </form>
         </section>
 
-        <section>
+        <section class="section-centered">
             <h2>Список задач</h2>
             <ul id="taskList"></ul>
+            <button id="clearTasksButton" class="button">Очистить все задачи</button>
         </section>
     </main>
 

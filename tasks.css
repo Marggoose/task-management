@@ -1,163 +1,199 @@
 /* Общие стили для страницы задач */
 body {
-    font-family: 'Roboto', sans-serif; /* Используем шрифт Roboto */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Цвет фона страницы */
+    background-color: #f4f4f4;
 }
 
 /* Заголовок */
 header {
-    background: #2c3e50; /* Цвет фона шапки */
-    color: white; /* Цвет текста в шапке */
-    padding: 20px; /* Отступы внутри шапки */
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
 }
 
 /* Контейнер заголовка */
 .header-container {
-    display: flex; /* Используем flexbox для расположения элементов */
-    justify-content: space-between; /* Распределяем пространство между элементами */
-    align-items: center; /* Выравнивание по центру по вертикали */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Кнопки в навигации */
+/* Кнопки */
 .button {
-    background-color: #ff6f61; /* Цвет кнопки */
-    color: white; /* Цвет текста кнопки */
-    padding: 10px 15px; /* Отступы внутри кнопки */
-    border: none; /* Без границы */
-    border-radius: 4px; /* Закругленные углы */
-    text-decoration: none; /* Убираем подчеркивание */
-    transition: background-color 0.3s; /* Плавный переход цвета кнопки */
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .button:hover {
-    background-color: #e55a50; /* Цвет кнопки при наведении */
+    background-color: #e55a50;
 }
 
-/* Стили для формы добавления задачи */
+/* Форма добавления задачи */
 form {
-    background: white; /* Цвет фона формы */
-    border-radius: 8px; /* Закругленные углы */
-    padding: 20px; /* Отступы внутри формы */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
-    margin-bottom: 20px; /* Отступ снизу */
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
 }
 
-/* Заголовок формы */
 form h2 {
-    margin-bottom: 15px; /* Отступ снизу заголовка формы */
-    color: #2c3e50; /* Цвет заголовка формы */
+    margin-bottom: 15px;
+    color: #2c3e50;
 }
 
 /* Поля ввода */
 input, textarea, select {
-    width: 100%; /* Ширина полей на всю ширину родителя */
-    padding: 10px; /* Отступы внутри полей */
-    margin: 10px 0; /* Отступы сверху и снизу */
-    border: 1px solid #ccc; /* Цвет границы */
-    border-radius: 4px; /* Закругленные углы */
-    font-size: 16px; /* Размер шрифта */
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 /* Список задач */
 ul {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto 40px;
 }
 
-/* Элементы списка задач */
 li {
-    background: white; /* Цвет фона для каждой задачи */
-    padding: 15px; /* Отступы внутри элемента списка */
-    margin: 10px 0; /* Отступы между задачами */
-    border-radius: 8px; /* Закругленные углы */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
-    opacity: 0; /* Начальное состояние для анимации */
-    transform: translateY(-20px); /* Начальная позиция для анимации */
-    animation: fadeInUp 0.5s forwards; /* Анимация */
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 0.5s forwards;
 }
 
 /* Анимация появления */
 @keyframes fadeInUp {
     to {
-        opacity: 1; /* Конечное состояние */
-        transform: translateY(0); /* Конечная позиция */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Стили для кнопок внутри задач */
+/* Структура задачи */
+li strong {
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+li em {
+    font-style: normal;
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+li span {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #27ae60;
+}
+
+/* Кнопки задачи */
 li button {
-    background-color: #ff6f61; /* Цвет кнопки */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Без границы */
-    border-radius: 4px; /* Закругленные углы */
-    padding: 5px 10px; /* Отступы внутри кнопки */
-    cursor: pointer; /* Указатель при наведении */
-    margin-right: 5px; /* Отступ между кнопками */
-    transition: background-color 0.3s; /* Плавный переход цвета кнопки */
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 8px 5px 0 0;
+    transition: background-color 0.3s;
 }
 
 li button:hover {
-    background-color: #e55a50; /* Цвет кнопки при наведении */
+    background-color: #e55a50;
 }
 
-/* Стили для футера */
-footer {
-    text-align: center; /* Выравнивание текста по центру */
-    padding: 20px; /* Отступы внутри футера */
-    background: #2c3e50; /* Цвет фона футера */
-    color: white; /* Цвет текста футера */
-    position: relative; /* Позиционирование футера */
-    bottom: 0; /* Привязываем футер к низу */
-    width: 100%; /* Ширина футера на всю страницу */
-}
-
-/* Дополнительные стили для уведомлений или ошибок */
-.alert {
-    background: #f8d7da; /* Цвет фона для уведомлений об ошибках */
-    color: #721c24; /* Цвет текста для ошибок */
-    padding: 10px; /* Отступы внутри уведомления */
-    border: 1px solid #f5c6cb; /* Цвет границы для уведомления */
-    border-radius: 4px; /* Закругленные углы */
-    margin: 20px 0; /* Отступы сверху и снизу */
-}
-
-/* Стили для успешных уведомлений */
-.success {
-    background: #d4edda; /* Цвет фона для успешных уведомлений */
-    color: #155724; /* Цвет текста для успешных уведомлений */
-    border: 1px solid #c3e6cb; /* Цвет границы для успешных уведомлений */
-}
-
-/* Стили для кнопки удаления задачи */
+/* Кнопка удаления */
 .delete-button {
-    background-color: #dc3545; /* Цвет кнопки удаления */
-    color: white; /* Цвет текста кнопки удаления */
-    padding: 5px 10px; /* Отступы внутри кнопки */
-    border: none; /* Без границы */
-    border-radius: 4px; /* Закругленные углы */
-    cursor: pointer; /* Указатель при наведении */
-    transition: background-color 0.3s; /* Плавный переход цвета кнопки */
+    background-color: #dc3545;
 }
 
 .delete-button:hover {
-    background-color: #c82333; /* Цвет кнопки удаления при наведении */
+    background-color: #c82333;
 }
 
-/* Стили для мобильных устройств */
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Уведомления */
+.alert {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Мобильная адаптация */
 @media (max-width: 768px) {
     .header-container {
-        flex-direction: column; /* Вертикальное расположение элементов заголовка на мобильных устройствах */
-        align-items: flex-start; /* Выравнивание по левому краю */
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .button {
-        width: 100%; /* Ширина кнопок на мобильных устройствах */
-        margin-bottom: 10px; /* Отступ между кнопками */
+        width: 100%;
+        margin-bottom: 10px;
     }
 
     form {
-        padding: 15px; /* Уменьшение отступов внутри формы на мобильных устройствах */
+        padding: 15px;
     }
+
+    ul {
+        padding: 0 15px;
+    }
+
+    li {
+        padding: 12px;
+    }
+}
+/* Центрирование содержимого секций */
+.section-centered {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+/* Центрирование кнопки "Очистить все задачи" */
+#clearTasksButton {
+    margin: 20px auto 0;
+    display: block;
 }
